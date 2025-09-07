@@ -1,0 +1,241 @@
+/* ==========================
+   Fuente y estilos base
+   ========================== */
+body {
+  margin: 0;
+  font-family: 'Poppins', sans-serif;
+  background: #000;
+  color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  overflow: hidden;
+  line-height: 1.6;
+}
+
+/* Efecto halftone en el fondo */
+body::before {
+  content: "";
+  position: absolute;
+  top: -50px;
+  left: -50px;
+  width: 200%;
+  height: 200%;
+  background-image: radial-gradient(#222 1px, transparent 1px);
+  background-size: 14px 14px;
+  opacity: 0.12;
+  pointer-events: none;
+  z-index: 0;
+}
+
+/* ==========================
+   Figuras geométricas decorativas
+   ========================== */
+.bg-shapes {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  z-index: 0;
+}
+
+.circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.15;
+}
+
+.circle.red {
+  width: 180px;
+  height: 180px;
+  background: #ff2b2b;
+  top: 10%;
+  left: -60px;
+}
+
+.circle.white {
+  width: 120px;
+  height: 120px;
+  background: #fff;
+  bottom: 20%;
+  right: -40px;
+  opacity: 0.08;
+}
+
+.circle.big {
+  width: 300px;
+  height: 300px;
+  border: 3px solid #ff2b2b;
+  top: 50%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  opacity: 0.1;
+}
+
+.triangle {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border-left: 100px solid transparent;
+  border-right: 100px solid transparent;
+  border-bottom: 180px solid rgba(255, 255, 255, 0.05);
+  top: 65%;
+  left: -40px;
+  transform: rotate(-20deg);
+}
+
+/* ==========================
+   Caja principal
+   ========================== */
+.container {
+  max-width: 420px;
+  width: 100%;
+  background: rgba(15, 15, 15, 0.92);
+  border: 2px solid #ff2b2b;
+  border-radius: 20px;
+  padding: 30px;
+  box-shadow: 0 8px 25px rgba(255, 0, 0, 0.3);
+  position: relative;
+  z-index: 2;
+  backdrop-filter: blur(6px);
+}
+
+/* ==========================
+   Imagen / Logo
+   ========================== */
+.avatar {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #fff;
+  margin-bottom: 15px;
+  box-shadow: 0 0 20px rgba(255, 0, 0, 0.6);
+  transition: transform 0.3s ease;
+}
+
+.avatar:hover {
+  transform: scale(1.05);
+}
+
+/* ==========================
+   Título con animación neon
+   ========================== */
+.neon {
+  margin: 10px 0;
+  font-size: 2.2rem;
+  color: #ff2b2b;
+  text-shadow: 0 0 8px rgba(255, 43, 43, 0.7),
+               0 0 15px rgba(255, 43, 43, 0.6);
+  animation: pulseNeon 2s infinite alternate;
+}
+
+@keyframes pulseNeon {
+  from {
+    text-shadow: 0 0 8px rgba(255, 43, 43, 0.7),
+                 0 0 15px rgba(255, 43, 43, 0.6);
+  }
+  to {
+    text-shadow: 0 0 20px rgba(255, 43, 43, 1),
+                 0 0 40px rgba(255, 43, 43, 0.9);
+  }
+}
+
+/* ==========================
+   Texto
+   ========================== */
+p {
+  font-weight: 400;
+  font-size: 1rem;
+  margin-bottom: 25px;
+  color: #ddd;
+}
+
+/* ==========================
+   Botones de redes sociales
+   ========================== */
+.links {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.btn {
+  display: block;
+  text-decoration: none;
+  padding: 14px;
+  border-radius: 30px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.3s ease;
+  border: 2px solid #ff2b2b;
+  color: #fff;
+  background: linear-gradient(135deg, #111, #222);
+  box-shadow: 0 0 10px rgba(255, 0, 0, 0.3);
+  animation: glow 3s infinite ease-in-out;
+}
+
+.btn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #ff2b2b, #990000);
+  box-shadow: 0 0 15px rgba(255, 0, 0, 0.8);
+}
+
+@keyframes glow {
+  0%, 100% {
+    box-shadow: 0 0 8px rgba(255, 0, 0, 0.4);
+  }
+  50% {
+    box-shadow: 0 0 20px rgba(255, 0, 0, 0.9);
+  }
+}
+
+/* ==========================
+   Footer
+   ========================== */
+footer {
+  margin-top: 30px;
+  font-size: 0.8rem;
+  color: #aaa;
+}
+
+/* ==========================
+   Responsividad
+   ========================== */
+@media (max-width: 768px) {
+  .container {
+    max-width: 90%;
+    padding: 25px;
+  }
+  .avatar {
+    width: 100px;
+    height: 100px;
+  }
+  .neon {
+    font-size: 1.8rem;
+  }
+  .btn {
+    font-size: 0.95rem;
+    padding: 12px;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar {
+    width: 90px;
+    height: 90px;
+  }
+  .neon {
+    font-size: 1.6rem;
+  }
+  p {
+    font-size: 0.9rem;
+  }
+  .btn {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
